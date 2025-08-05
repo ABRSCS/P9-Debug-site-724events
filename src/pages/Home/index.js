@@ -39,7 +39,7 @@ const Page = () => {
             sa taille, en s’adaptant à votre demande et à vos demandes. En tant
             que spécialistes de l’événementiel, nous saurons trouver le lieu
             parfait ainsi que des solutions inédites pour capter votre audience
-            et faire de cet évènement un succès
+            et faire de cet événement un succès
           </ServiceCard>
           <ServiceCard imageSrc="/images/sophia-sideri-LFXMtUuAKK8-unsplash1.png">
             <h3>Experience digitale</h3>

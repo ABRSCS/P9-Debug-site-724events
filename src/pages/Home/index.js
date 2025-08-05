@@ -35,9 +35,9 @@ const Page = () => {
           </ServiceCard>
           <ServiceCard imageSrc="/images/hall-expo.png">
             <h3>Conférences</h3>
-            724 events vous propose d’organiser votre évènement, quelle que soit
+            724 events vous propose d’organiser votre événement, quelle que soit
             sa taille, en s’adaptant à votre demande et à vos demandes. En tant
-            que spécialistes de l’évènementiel, nous saurons trouver le lieu
+            que spécialistes de l’événementiel, nous saurons trouver le lieu
             parfait ainsi que des solutions inédites pour capter votre audience
             et faire de cet évènement un succès
           </ServiceCard>
@@ -115,14 +115,16 @@ const Page = () => {
     </main>
     <footer className="row">
       <div className="col presta">
-        <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label="boom"
-        />
+        <h3>Notre dernière prestation</h3>
+        {last && last.cover && last.title && last.date && (
+          <EventCard
+            imageSrc={last.cover}
+            title={last.title}
+            date={new Date(last.date)}
+            small
+            label="boom"
+          />
+        )}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>

@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 
 import "./style.scss";
 
-console.log("coucou");
-
 export const BUTTON_TYPES = {
   DEFAULT: 1,
   SUBMIT: 2,

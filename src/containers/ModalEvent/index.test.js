@@ -12,8 +12,8 @@ const data = {
   periode: "24-25-26 Février",
   prestations: [
     "1 espace d’exposition",
-    "1 scéne principale",
-    "2 espaces de restaurations",
+    "1 scène principale",
+    "2 espaces de restauration",
     "1 site web dédié",
   ],
 };

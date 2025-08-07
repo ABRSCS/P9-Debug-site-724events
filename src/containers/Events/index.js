@@ -14,7 +14,10 @@ const EventList = () => {
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
-  const allEvents = data?.events || [];
+  const allEvents = data?.events
+  ? [...data.events].sort((a, b) => new Date(b.date) - new Date(a.date))
+  : [];
+  
   const allFilteredEvents = type ? allEvents.filter(evt => evt.type === type) : allEvents;
 
   // filtrage par type si sélectionné

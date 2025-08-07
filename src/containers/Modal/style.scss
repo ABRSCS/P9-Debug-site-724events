@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
   .content {
     position: relative;
     overflow: hidden;
@@ -15,6 +16,7 @@
     min-width: 300px;
     min-height: 100px;
     border-radius: 7px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
     button {
       position: absolute;
       top: 4px;

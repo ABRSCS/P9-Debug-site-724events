@@ -5,6 +5,8 @@ import {
   useContext,
   useEffect,
   useState,
+  useRef,
+  useMemo,
 } from "react";
 
 const DataContext = createContext({});
@@ -19,26 +21,37 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  const isLoadingRef = useRef(false);
+  
   const getData = useCallback(async () => {
+    if (isLoadingRef.current) return;
+    
     try {
-      setData(await api.loadData());
+      isLoadingRef.current = true;
+      setError(null);
+      const result = await api.loadData();
+      setData(result);
     } catch (err) {
       setError(err);
+    } finally {
+      isLoadingRef.current = false;
     }
   }, []);
+  
   useEffect(() => {
-    if (data) return;
+    if (data || isLoadingRef.current) return;
     getData();
-  });
+  }, [data, getData]);
+
+  // Mémoisation de la valeur du contexte pour éviter les re-renders
+  const contextValue = useMemo(() => ({
+    data,
+    error,
+    isLoading: isLoadingRef.current,
+  }), [data, error, isLoadingRef.current]);
   
   return (
-    <DataContext.Provider
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
-      value={{
-        data,
-        error,
-      }}
-    >
+    <DataContext.Provider value={contextValue}>
       {children}
     </DataContext.Provider>
   );
@@ -46,7 +59,7 @@ export const DataProvider = ({ children }) => {
 
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
 export const useData = () => useContext(DataContext);
 

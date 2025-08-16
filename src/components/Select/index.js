@@ -58,6 +58,8 @@ const Select = ({
             e.preventDefault();
             setCollapsed(!collapsed);
           }}
+          aria-label={collapsed ? "Ouvrir la liste" : "Fermer la liste"}
+          aria-expanded={!collapsed}
         >
           <Arrow />
         </button>

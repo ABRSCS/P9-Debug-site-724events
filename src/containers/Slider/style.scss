@@ -35,8 +35,38 @@
       input {
         width: 16px;
         height: 16px;
-        min-width: 0;
+        min-width: 16px;
+        max-width: 16px;
+        min-height: 16px;
+        max-height: 16px;
         color: $primary;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(91, 50, 255, 0.3);
+        border-radius: 50%;
+        background-color: transparent;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        flex-shrink: 0;
+        margin: 0 4px;
+        
+        &:hover {
+          border-color: $primary;
+          background-color: rgba(91, 50, 255, 0.1);
+          transform: scale(1.1);
+        }
+        
+        &:checked {
+          background-color: $primary;
+          border-color: $primary;
+          box-shadow: 0 0 8px rgba(91, 50, 255, 0.5);
+        }
+        
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(91, 50, 255, 0.3);
+        }
       }
     }
     &__description {
